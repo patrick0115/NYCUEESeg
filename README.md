@@ -1,4 +1,4 @@
-# Labelme
+# NYCUEESeg
 - [Labelme tutorial](https://hackmd.io/@agbug/ByjZArc9h)
 - [Labelme github](https://github.com/wkentaro/labelme)
 ## Preparation
