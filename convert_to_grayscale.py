@@ -43,23 +43,26 @@ def process_all_images(input_dir, output_dir, palette, size=(128, 128)):
     for filename in os.listdir(input_dir):
         if filename.endswith(".png"):  # 確保處理的是圖片文件
             file_path = os.path.join(input_dir, filename)
-            label = cv2.imread(file_path, cv2.IMREAD_COLOR)
 
+            label = cv2.imread(file_path, cv2.IMREAD_COLOR)
+    
             # 轉換成灰階
             grayscale_image = convert_to_grayscale(label, palette)
+            # print(grayscale_image)
 
             # 將 Numpy 數組轉換為 PIL Image 對象
             pil_img = Image.fromarray(grayscale_image)
 
-            # 調整圖片大小
-            resized_img = pil_img.resize(size, Image.ANTIALIAS)
 
             # 構建輸出文件的路徑
             output_file_path = os.path.join(output_dir, filename)
-
+       
             # 保存轉換後的圖片
-            resized_img.save(output_file_path)
+            pil_img.save(output_file_path)
+            # resized_img.save(output_file_path)
             print(f"圖片已保存: {output_file_path}")
+
+   
 
 if __name__ == "__main__":
     input_dir = './annotations'
