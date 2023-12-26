@@ -53,12 +53,13 @@ def process_all_images(input_dir, output_dir, palette, size=(128, 128)):
             # 將 Numpy 數組轉換為 PIL Image 對象
             pil_img = Image.fromarray(grayscale_image)
 
+            resized_img = pil_img.resize(size, Image.NEAREST)
 
             # 構建輸出文件的路徑
             output_file_path = os.path.join(output_dir, filename)
        
             # 保存轉換後的圖片
-            pil_img.save(output_file_path)
+            resized_img.save(output_file_path)
             # resized_img.save(output_file_path)
             print(f"圖片已保存: {output_file_path}")
 
